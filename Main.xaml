@@ -1,6 +1,6 @@
-﻿<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1054,2072" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1240,3034" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="54">
+    <scg:List x:TypeArguments="x:String" Capacity="29">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -29,10 +29,11 @@
       <x:String>System.Collections.ObjectModel</x:String>
       <x:String>UiPath.Shared.Activities.Business</x:String>
       <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>UiPath.Core.Activities.Orchestrator</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="86">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="44">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -78,36 +79,26 @@
       <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="734,2007" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="808,2849" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:String[]" Name="arr_String" />
-      <Variable x:TypeArguments="x:String" Name="in_Str_InputFromFolder" />
-      <Variable x:TypeArguments="x:String" Name="in_Str_OutputFolder" />
+      <Variable x:TypeArguments="x:String" Default="C:\Users\Administrator\Documents\Navia Claims POC\03012023\Input" Name="in_Str_InputFromFolder" />
+      <Variable x:TypeArguments="x:String" Default="C:\Users\DRawat\Desktop\Data" Name="in_Str_OutputFolder" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign DisplayName="PositiveCases" sap:VirtualizedContainerService.HintSize="672,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign DisplayName="PositiveCases" sap:VirtualizedContainerService.HintSize="746,61" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="s:String[]">[arr_String]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="s:String[]">[{"29720737","29707374","29724900","29790906","29858130","29858238","29858245","29858348","29860797","29893240","29906929","29906952","29906955","29906972","29909783"}]</InArgument>
+        <InArgument x:TypeArguments="s:String[]">[{"29790906","29858238","29858348","29906972","29906929","29906952","29906955","29909783"}]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:InputDialog Label="{x:Null}" Options="{x:Null}" OptionsString="{x:Null}" Title="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="672,239" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False">
-      <ui:InputDialog.Result>
-        <OutArgument x:TypeArguments="x:String">[in_Str_InputFromFolder]</OutArgument>
-      </ui:InputDialog.Result>
-    </ui:InputDialog>
-    <ui:InputDialog Label="{x:Null}" Options="{x:Null}" OptionsString="{x:Null}" Title="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="672,239" sap2010:WorkflowViewState.IdRef="InputDialog_2" IsPassword="False">
-      <ui:InputDialog.Result>
-        <OutArgument x:TypeArguments="x:String">[in_Str_OutputFolder]</OutArgument>
-      </ui:InputDialog.Result>
-    </ui:InputDialog>
-    <ui:ForEachFileX DisplayName="For Each File in Folder" Folder="[in_Str_InputFromFolder]" sap:VirtualizedContainerService.HintSize="672,1216" sap2010:WorkflowViewState.IdRef="ForEachFileX_1" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
+    <ui:ForEachFileX DisplayName="For Each File in Folder" Folder="[in_Str_OutputFolder]" sap:VirtualizedContainerService.HintSize="746,515" sap2010:WorkflowViewState.IdRef="ForEachFileX_2" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
       <ui:ForEachFileX.Body>
         <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
           <ActivityAction.Argument1>
@@ -116,7 +107,27 @@
           <ActivityAction.Argument2>
             <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
           </ActivityAction.Argument2>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="638,966" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="400,265" sap2010:WorkflowViewState.IdRef="Sequence_7">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:CopyFile ContinueOnError="{x:Null}" Destination="C:\Users\Administrator\Documents\Navia Claims POC\03012023\Input" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="338,154" sap2010:WorkflowViewState.IdRef="CopyFile_2" Overwrite="True" Path="[File.ToString]" />
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEachFileX.Body>
+    </ui:ForEachFileX>
+    <ui:ForEachFileX DisplayName="For Each File in Folder" Folder="[in_Str_InputFromFolder]" sap:VirtualizedContainerService.HintSize="746,2082" sap2010:WorkflowViewState.IdRef="ForEachFileX_1" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
+      <ui:ForEachFileX.Body>
+        <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
+          <ActivityAction.Argument1>
+            <DelegateInArgument x:TypeArguments="si:FileInfo" Name="File" />
+          </ActivityAction.Argument1>
+          <ActivityAction.Argument2>
+            <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
+          </ActivityAction.Argument2>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="712,1832" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Int32" Name="indexArray" />
             </Sequence.Variables>
@@ -125,13 +136,13 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="[indexArray]" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="576,855" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[arr_String]">
+            <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="[indexArray]" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="650,1721" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[arr_String]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:Object" Name="batch" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="540,731" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="614,1597" sap2010:WorkflowViewState.IdRef="Sequence_6">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:String" Name="BatchNum" />
                       <Variable x:TypeArguments="x:String" Name="filename" />
@@ -141,7 +152,7 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Assign sap:VirtualizedContainerService.HintSize="478,82" sap2010:WorkflowViewState.IdRef="Assign_2">
+                    <Assign sap:VirtualizedContainerService.HintSize="552,61" sap2010:WorkflowViewState.IdRef="Assign_2">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:String">[BatchNum]</OutArgument>
                       </Assign.To>
@@ -149,7 +160,7 @@
                         <InArgument x:TypeArguments="x:String">[arr_String(indexArray).ToString]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <Assign sap:VirtualizedContainerService.HintSize="478,82" sap2010:WorkflowViewState.IdRef="Assign_3">
+                    <Assign sap:VirtualizedContainerService.HintSize="552,61" sap2010:WorkflowViewState.IdRef="Assign_3">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:String">[filename]</OutArgument>
                       </Assign.To>
@@ -157,27 +168,75 @@
                         <InArgument x:TypeArguments="x:String">[Path.GetFileNameWithoutExtension(File.ToString).Replace(".tif","")]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <If Condition="[BatchNum=filename]" sap:VirtualizedContainerService.HintSize="478,376" sap2010:WorkflowViewState.IdRef="If_2">
+                    <If Condition="[BatchNum=filename]" sap:VirtualizedContainerService.HintSize="552,1284" sap2010:WorkflowViewState.IdRef="If_2">
                       <If.Then>
-                        <Sequence sap:VirtualizedContainerService.HintSize="400,81" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                        <Sequence sap:VirtualizedContainerService.HintSize="474,1008" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                          <Sequence.Variables>
+                            <Variable x:TypeArguments="scg:IEnumerable(ui:QueueItem)" Name="queueItem" />
+                          </Sequence.Variables>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:CopyFile ContinueOnError="{x:Null}" Destination="[in_Str_OutputFolder]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="338,154" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="[File.ToString]" />
-                          <ui:AddQueueItem ServiceBaseAddress="{x:Null}" DisplayName="Add Queue Item" FolderPath="Shared" sap:VirtualizedContainerService.HintSize="338,619" sap2010:WorkflowViewState.IdRef="AddQueueItem_1" Priority="Normal" QueueType="NaviaInputFilePath" Reference="[Path.GetFileNameWithoutExtension(File.ToString)]">
-                            <ui:AddQueueItem.ItemInformation>
-                              <InArgument x:TypeArguments="x:String" x:Key="TargetFile">[File.ToString]</InArgument>
-                            </ui:AddQueueItem.ItemInformation>
-                            <ui:AddQueueItem.ItemInformationCollection>
-                              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" />
-                            </ui:AddQueueItem.ItemInformationCollection>
-                            <ui:AddQueueItem.TimeoutMS>
+                          <ui:CopyFile ContinueOnError="{x:Null}" Destination="[in_Str_OutputFolder]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="412,154" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="[File.ToString]" />
+                          <ui:GetQueueItems Priority="{x:Null}" DisplayName="Checking the queue item" FilterStrategy="StartsWith" FolderPath="Shared" sap:VirtualizedContainerService.HintSize="412,168" sap2010:WorkflowViewState.IdRef="GetQueueItems_1" QueueItemStates="New, InProgress, Failed, Successful, Abandoned, Retried, Deleted" QueueName="NaviaInputFilePath" Reference="[path.GetFileNameWithoutExtension(File.ToString)]" Result="[queueItem]">
+                            <ui:GetQueueItems.Duration>
+                              <InArgument x:TypeArguments="s:Nullable(x:Int32)" />
+                            </ui:GetQueueItems.Duration>
+                            <ui:GetQueueItems.From>
+                              <InArgument x:TypeArguments="s:Nullable(s:DateTime)" />
+                            </ui:GetQueueItems.From>
+                            <ui:GetQueueItems.Skip>
                               <InArgument x:TypeArguments="x:Int32" />
-                            </ui:AddQueueItem.TimeoutMS>
-                          </ui:AddQueueItem>
+                            </ui:GetQueueItems.Skip>
+                            <ui:GetQueueItems.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:GetQueueItems.TimeoutMS>
+                            <ui:GetQueueItems.To>
+                              <InArgument x:TypeArguments="s:Nullable(s:DateTime)" />
+                            </ui:GetQueueItems.To>
+                            <ui:GetQueueItems.Top>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:GetQueueItems.Top>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:GetQueueItems>
+                          <If Condition="[queueItem.Count=0]" DisplayName="Condition for Queue Count - If" sap:VirtualizedContainerService.HintSize="412,495" sap2010:WorkflowViewState.IdRef="If_3">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <If.Then>
+                              <ui:AddQueueItem ServiceBaseAddress="{x:Null}" DisplayName="Add Queue Item" FolderPath="Shared" sap:VirtualizedContainerService.HintSize="334,219" sap2010:WorkflowViewState.IdRef="AddQueueItem_2" Priority="Normal" QueueType="NaviaInputFilePath" Reference="[path.GetFileNameWithoutExtension(File.ToString)]">
+                                <ui:AddQueueItem.ItemInformation>
+                                  <InArgument x:TypeArguments="x:String" x:Key="TargetFile">[File.ToString]</InArgument>
+                                </ui:AddQueueItem.ItemInformation>
+                                <ui:AddQueueItem.ItemInformationCollection>
+                                  <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" />
+                                </ui:AddQueueItem.ItemInformationCollection>
+                                <ui:AddQueueItem.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:AddQueueItem.TimeoutMS>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </ui:AddQueueItem>
+                            </If.Then>
+                            <If.Else>
+                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Queue item already exists&quot;]" />
+                            </If.Else>
+                          </If>
                         </Sequence>
                       </If.Then>
                     </If>
